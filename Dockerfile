@@ -1,5 +1,6 @@
 FROM debian:stretch
-MAINTAINER David Personette <dperson@gmail.com>
+
+LABEL $LABELS
 
 # Install samba
 RUN export DEBIAN_FRONTEND='noninteractive' && \

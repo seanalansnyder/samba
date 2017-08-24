@@ -1,4 +1,5 @@
 [![logo](https://raw.githubusercontent.com/dperson/samba/master/logo.jpg)](https://www.samba.org)
+(THIS IS A FORK of dperson/samba's excellent work attempting to use docker-compose.yml, docker-stack.yml, and .env files)
 
 # Samba
 
@@ -16,17 +17,17 @@ By default there are no shares configured, additional ones can be added.
 
 ## Hosting a Samba instance
 
-    sudo docker run -it -p 139:139 -p 445:445 -d dperson/samba
+    sudo docker run -it -p 139:139 -p 445:445 -d seanalansnyder/samba
 
 OR set local storage:
 
     sudo docker run -it --name samba -p 139:139 -p 445:445 \
                 -v /path/to/directory:/mount \
-                -d dperson/samba
+                -d seanalansnyder/samba
 
 ## Configuration
 
-    sudo docker run -it --rm dperson/samba -h
+    sudo docker run -it --rm seanalansnyder/samba -h
     Usage: samba.sh [-opt] [command]
     Options (fields in '[]' are optional, '<>' are required):
         -h          This help
@@ -89,17 +90,17 @@ Any of the commands can be run at creation with `docker run` or later with
 
 OR using `environment variables`
 
-    sudo docker run -it -e TZ=EST5EDT -p 139:139 -p 445:445 -d dperson/samba
+    sudo docker run -it -e TZ=EST5EDT -p 139:139 -p 445:445 -d seanalansnyder/samba
 
 Will get you the same settings as
 
-    sudo docker run -it --name samba -p 139:139 -p 445:445 -d dperson/samba
+    sudo docker run -it --name samba -p 139:139 -p 445:445 -d seanalansnyder/samba
     sudo docker exec -it samba samba.sh -t EST5EDT ls -AlF /etc/localtime
     sudo docker restart samba
 
 ### Start an instance creating users and shares:
 
-    sudo docker run -it -p 139:139 -p 445:445 -d dperson/samba \
+    sudo docker run -it -p 139:139 -p 445:445 -d seanalansnyder/samba \
                 -u "example1;badpass" \
                 -u "example2;badpass" \
                 -s "public;/share" \
@@ -112,4 +113,4 @@ Will get you the same settings as
 ## Issues
 
 If you have any problems with or questions about this image, please contact me
-through a [GitHub issue](https://github.com/dperson/samba/issues).
+through a [GitHub issue](https://github.com/seanalansnyder/samba/issues).
